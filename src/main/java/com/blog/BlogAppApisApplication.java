@@ -8,7 +8,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
 
@@ -16,11 +15,9 @@ import java.util.List;
 public class BlogAppApisApplication implements CommandLineRunner {
 
     public static final String[] PUBLIC_URLS = {"/api/v1/auth/**", "/v2/api-docs", "/v3/api-docs", "/swagger-resources/**", "/swagger-ui/**", "/webjars/**"};
-    private final PasswordEncoder passwordEncoder;
     private final RoleRepo roleRepo;
 
-    public BlogAppApisApplication(PasswordEncoder passwordEncoder, RoleRepo roleRepo) {
-        this.passwordEncoder = passwordEncoder;
+    public BlogAppApisApplication(RoleRepo roleRepo) {
         this.roleRepo = roleRepo;
     }
 
